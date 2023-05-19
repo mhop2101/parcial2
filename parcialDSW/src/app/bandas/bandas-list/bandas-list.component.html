@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Pais</th>
+            <th scope="col">Genero</th>
+            <th scope="col">Fundacion</th>
+          </tr>
+        </thead>
+        <tbody class="table-secondary" id="mytbody">
+          <tr *ngFor="let banda of bandas; let i = index" (click)="onSelected(banda)">
+            <td scope="row">{{i+1}}</td>
+            <td>{{banda.name}}</td>
+            <td>{{banda.country}}</td>
+            <td>{{banda.genre}}</td>
+            <td>{{banda.foundation_year}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="px-2">La banda mas antigua es {{bandaMasAntigua.name}} y fue fundada en {{bandaMasAntigua.foundation_year}} </p>
+    </div>
+
+    <div class="col-md-4" *ngIf="selected">
+      <app-bandas-detail [banda]="selectedBanda"></app-bandas-detail>
+    </div>
+
+  </div>
+
+
+
+</div>
